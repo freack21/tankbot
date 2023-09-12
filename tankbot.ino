@@ -72,6 +72,42 @@ BLYNK_WRITE(V5)
   }
 }
 
+BLYNK_WRITE(V6)
+{
+  if(param.asInt() == 1) {
+    servo_putar_kekiri();
+  } else {
+    servo_putar_stop();
+  }
+}
+
+BLYNK_WRITE(V7)
+{
+  if(param.asInt() == 1) {
+    servo_putar_kekanan();
+  } else {
+    servo_putar_stop();
+  }
+}
+
+BLYNK_WRITE(V8)
+{
+  if(param.asInt() == 1) {
+    servo_bahu_kekiri();
+  } else {
+    servo_bahu_stop();
+  }
+}
+
+BLYNK_WRITE(V9)
+{
+  if(param.asInt() == 1) {
+    servo_bahu_kekanan();
+  } else {
+    servo_bahu_stop();
+  }
+}
+
 void setup() {
   // put your setup code here, to run once:
   Serial.begin(115200);
