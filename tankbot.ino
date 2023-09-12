@@ -72,44 +72,42 @@ BLYNK_WRITE(V5)
   }
 }
 
+// joystick sebelah kiri
 BLYNK_WRITE(V6)
 {
-  if(param.asInt() == 1) {
-    servo_putar_kekiri();
-  } else {
-    servo_putar_stop();
-  }
+  // untuk swing bawah
+  int servoPutarX = param.asInt(); 
+  int servoPosition = map(servoPutarX, 0, 1023, 0, 360); 
+  servoPutar.write(servoPosition); 
 }
 
 BLYNK_WRITE(V7)
 {
-  if(param.asInt() == 1) {
-    servo_putar_kekanan();
-  } else {
-    servo_putar_stop();
-  }
+  // untuk boom
+  int servoPutarY = param.asInt(); 
+  int servoPosition = map(servoPutarY, 0, 1023, 0, 180); 
+  servoLengan.write(servoPosition);
 }
 
+// joystick sebelah kanan
 BLYNK_WRITE(V8)
 {
-  if(param.asInt() == 1) {
-    servo_bahu_kekiri();
-  } else {
-    servo_bahu_stop();
-  }
+  // untuk penjepit
+  int servoPutarX = param.asInt(); 
+  int servoPosition = map(servoPutarX, 0, 1023, 0, 180); 
+  servoCapit.write(servoPosition); 
 }
 
 BLYNK_WRITE(V9)
 {
-  if(param.asInt() == 1) {
-    servo_bahu_kekanan();
-  } else {
-    servo_bahu_stop();
-  }
+  // untuk stick
+  int servoPutarY = param.asInt(); 
+  int servoPosition = map(servoPutarY, 0, 1023, 0, 180); 
+  servoBahu.write(servoPosition);
 }
 
 void setup() {
-  // put your setup code here, to run once:
+  
   Serial.begin(115200);
   Blynk.begin(BLYNK_AUTH_TOKEN, ssid, pass);
 
@@ -125,6 +123,6 @@ void setup() {
 }
 
 void loop() {
-  // put your main code here, to run repeatedly:
+  
   Blynk.run();
 }
