@@ -67,8 +67,8 @@ void servo_bahu_stop() {
 void servo_capit_kekanan() {
     for(int i = 0; i <= 180; i++) {
         if(i > 180) i = 0;
-        sudutServoKiri = i;
-        servoKiri.write(sudutServoKiri);
+        sudutServoCapit = i;
+        servoCapit.write(sudutServoCapit);
         delay(15);
     }
 }
@@ -76,12 +76,12 @@ void servo_capit_kekanan() {
 void servo_capit_kekiri() {
     for(int i = 180; i >= 0; i--) {
         if(i < 0) i = 180;
-        sudutServoKiri = i;
-        servoKiri.write(sudutServoKiri);
+        sudutServoCapit = i;
+        servoCapit.write(sudutServoCapit);
         delay(15);
     }
 }
 
 void servo_capit_stop() {
-    servoKiri.write(sudutServoKiri);
+    servoCapit.write(sudutServoCapit);
 }
