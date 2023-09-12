@@ -7,8 +7,8 @@
 #include <BlynkSimpleEsp8266.h>
 #include <Servo.h>
 
-Servo servoPutar, servoKanan, servoKiri, servoCapit;
-int posServoPutar = 0, posServoKanan = 0, posServoKiri = 0, posServoCapit = 0;
+Servo servoPutar, servoLengan, servoBahu, servoCapit;
+int sudutServoPutar = 0, sudutServoLengan = 0, sudutServoBahu = 0, sudutServoCapit = 0;
 
 char ssid[] = "SSO_UNRI";
 char pass[] = "";
@@ -82,10 +82,10 @@ void setup() {
   pinMode(BAN_KANAN1, OUTPUT);
   pinMode(BAN_KANAN2, OUTPUT);
 
-  servoPutar.attach(5);
-  servoKanan.attach(6);
-  servoKiri.attach(7);
-  servoCapit.attach(8);
+  servoPutar.attach(14);
+  servoLengan.attach(12);
+  servoBahu.attach(13);
+  servoCapit.attach(15);
 }
 
 void loop() {
