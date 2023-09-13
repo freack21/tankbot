@@ -1,4 +1,4 @@
-#define BLYNK_PRINT Serial
+#define BLYNK_PRINTln Serial
 #define BLYNK_TEMPLATE_ID "TMPL6B9uArUJ1"
 #define BLYNK_TEMPLATE_NAME "TankBot"
 #define BLYNK_AUTH_TOKEN "UgLHTNi4IO3M39WfG9ROEugS7wMG7wDD"
@@ -77,32 +77,39 @@ BLYNK_WRITE(V6)
 {
   // untuk swing bawah
   int servoPutarX = param.asInt(); 
+  // Serial.println(servoPutarX);
   int servoPosition = map(servoPutarX, 0, 1023, 0, 360); 
+  // Serial.println(servoPosition);
   servoPutar.write(servoPosition); 
+  // servoPutar.write(servoPutarX); 
 }
 
 BLYNK_WRITE(V7)
 {
-  // untuk boom
-  int servoPutarY = param.asInt(); 
-  int servoPosition = map(servoPutarY, 0, 1023, 0, 180); 
+  // untuk stick
+  // int servoLenganY = analogRead(V7); 
+  int servoLenganY = param.asInt(); 
+  int servoPosition = map(servoLenganY, 0, 1023, 0, 180); 
   servoLengan.write(servoPosition);
+  // servoLengan.write(servoLenganY);
 }
 
 // joystick sebelah kanan
 BLYNK_WRITE(V8)
 {
   // untuk penjepit
-  int servoPutarX = param.asInt(); 
-  int servoPosition = map(servoPutarX, 0, 1023, 0, 180); 
+  int servoCapitX = param.asInt(); 
+  int servoPosition = map(servoCapitX, 0, 1023, 0, 180); 
   servoCapit.write(servoPosition); 
 }
 
 BLYNK_WRITE(V9)
 {
-  // untuk stick
-  int servoPutarY = param.asInt(); 
-  int servoPosition = map(servoPutarY, 0, 1023, 0, 180); 
+  // untuk boom
+  int servoBahuY = param.asInt(); 
+  // Serial.println(servoBahuY);
+  int servoPosition = map(servoBahuY, 0, 1023, 0, 180); 
+  // Serial.println(servoPosition);
   servoBahu.write(servoPosition);
 }
 
@@ -120,6 +127,11 @@ void setup() {
   servoLengan.attach(12);
   servoBahu.attach(13);
   servoCapit.attach(15);
+
+  servoPutar.write(360);
+  servoLengan.write(90);
+  servoBahu.write(0);
+  servoCapit.write(0);
 }
 
 void loop() {
