@@ -78,7 +78,7 @@ BLYNK_WRITE(V6)
   // untuk swing bawah
   int servoPutarX = param.asInt(); 
   // Serial.println(servoPutarX);
-  int servoPosition = map(servoPutarX, 0, 1023, 0, 360); 
+  int servoPosition = map(servoPutarX, 0, 1023, 0, 180); 
   // Serial.println(servoPosition);
   servoPutar.write(servoPosition); 
   // servoPutar.write(servoPutarX); 
@@ -128,8 +128,8 @@ void setup() {
   servoBahu.attach(13);
   servoCapit.attach(15);
 
-  servoPutar.write(360);
-  servoLengan.write(90);
+  servoPutar.write(90);
+  servoLengan.write(0);
   servoBahu.write(0);
   servoCapit.write(0);
 }
